@@ -47,7 +47,7 @@ class BinarySearchTreeNode:
         if self.right:
             elements += self.right.in_order_traversal() # ' ' ' '
             
-        return elements
+        return elements # it returns all the elements in the tree in specific order [ascending order]
     
 def build_tree(elements):
     # root node for the tree element
@@ -62,3 +62,5 @@ def build_tree(elements):
 # return main method with the given data node structure that consist of numbers in list
 if __name__ == "__main__":
     numbers = [17, 4, 1, 20, 9, 23, 18, 34]
+    numbers_tree = build_tree(numbers) 
+    print(numbers_tree.in_order_traversal()) # call the def in_order_traversal(self) parameter function and executing the code to return the elements with ascending order rule.
