@@ -31,24 +31,6 @@ class BinarySearchTreeNode:
             else:
                 self.right = BinarySearchTreeNode(data)
     
-    # Implementing an algorithm for specifying a particular order of precedence for a given data node.
-    def in_order_traversal(self):
-        elements = []
-        
-        # visiting the left tree element/s
-        if self.left:
-            # when checking elements = elements plus something, the self.left.in_order_traversal method will return some list and it will add that list to a local "element" list. 
-            elements += self.left.in_order_traversal() # calling this function recursively
-        
-        # visiting the base node
-        elements.append(self.data)
-        
-        # visiting the right tree element/s
-        if self.right:
-            elements += self.right.in_order_traversal() # ' ' ' '
-            
-        return elements # it returns all the elements in the tree in specific order [ascending order]
-    
     def search(self, val):
         if self.data == val:
             return True
@@ -69,9 +51,26 @@ class BinarySearchTreeNode:
                 return False
             # 'val' might be in right subtree (not guaranteed)
 
+    # Implementing an algorithm for specifying a particular order of precedence for a given data node.
+    def in_order_traversal(self):
+        elements = []
+        
+        # visiting the left tree element/s
+        if self.left:
+            # when checking elements = elements plus something, the self.left.in_order_traversal method will return some list and it will add that list to a local "element" list. 
+            elements += self.left.in_order_traversal() # calling this function recursively
+        
+        # visiting the base node
+        elements.append(self.data)
+        
+        # visiting the right tree element/s
+        if self.right:
+            elements += self.right.in_order_traversal() # ' ' ' '
+            
+        return elements # it returns all the elements in the tree in specific order [ascending order]
     
 def build_tree(elements):
-    print("Building tree with these elements: ", elements)
+    print("\nBuilding tree with these elements: ", elements)
     # root node for the tree element
     root = BinarySearchTreeNode(elements[0]) 
     
@@ -83,13 +82,15 @@ def build_tree(elements):
  
 # return main method with the given data node structure that consist of numbers in list
 if __name__ == "__main__":
-    countries = ["India", "Pakistan", "Germany", "USA", "China", "India", "UK", "USA"] # implementation of sets that contain numbers which are unique and therefore does not allow duplicates.
+    numbers_tree = build_tree([17, 4, 1, 20, 9, 23, 18, 34]) # implementation of sets that contain numbers which are unique and therefore does not allow duplicates.
+    print("In order traversal gives this sorted list (NUMBERS) :",numbers_tree.in_order_traversal())
+        
+    countries = ["India", "Pakistan", "Germany", "USA", "China", "India", "UK", "USA"] # implementation of sets that contain countries which are unique and therefore does not allow duplicates.
     country_tree = build_tree(countries) 
     print(country_tree.in_order_traversal()) # call the def in_order_traversal(self) parameter function and executing the code to return the elements with ascending order rule.
     
     """ testing out code block 85 for our binary search tree """
     print("UK is in the list? ", country_tree.search("UK")) # will return True because element 20 exist
     print("Sweden is in the list? ", country_tree.search("Sweden")) # will return False because element 21 does not exist
-    print(country_tree.search(200)) # will return False because element 200 does not exist
     
-    print(country_tree.in_order_traversal()) # call the def in_order_tra
+    print(country_tree.in_order_traversal(), "\n") # call the def in_order_tra
