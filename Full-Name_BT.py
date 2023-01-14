@@ -102,3 +102,28 @@ class BinarySearchTreeNode:
         if self.right is None: # the right child element of the root node has been used as the perspective view for finding the minimum element in the binary tree.
             return self.data
         return self.right.find_max()
+    
+    def delete(self, val): # implementing delete function where we can supply a particular value and it will delete the node from the binary tree
+        if val < self.data: # checking if the value is less than the self.data
+            if self.left:
+                self.left = self.left.delete(val) # recursively call delete method on the left subtree
+        elif val > self.data:
+            if self.right:
+                self.right = self.right.delete(val)
+        
+        else:
+            if self.left is None and self.right is None: # we raised the last data point, left and right subtree is basically None
+                return None
+            """
+                recursion method
+            """
+            if self.left is None: # we have right but we don't have left subtree
+                return self.right
+            if self.right is None:
+                return self.right
+            
+            max_val = self.left.find_max()
+            self.data = max_val
+            self.left = self.left.delete(max_val)
+            
+        return self
