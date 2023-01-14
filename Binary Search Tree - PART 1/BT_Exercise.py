@@ -71,12 +71,14 @@ class BinarySearchTreeNode:
         return elements # it returns all the elements in the tree in specific order [ascending order]
     
     def find_min(self):
-        if self.left is None:
+        if self.left is None: # the left child element of the root node has been used as the perspective view for finding the minimum element in the binary tree.
             return self.data
         return self.left.find_min()
     
-    # TODO: From here on, we will now create a new def function for finding out the maximum element value in the entirety of our binary tree.
     def find_max(self):
+        if self.right is None: # the right child element of the root node has been used as the perspective view for finding the minimum element in the binary tree.
+            return self.data
+        return self.left.find_max()
     
 def build_tree(elements):
     print("\nBuilding tree with these elements: ", elements)
