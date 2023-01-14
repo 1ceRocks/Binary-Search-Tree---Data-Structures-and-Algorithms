@@ -56,7 +56,7 @@ class BinarySearchTreeNode:
         # if the value we're searching for is less than data
         if val < self.data:
             if self.left:
-                self.left.search(val) # it will do a recursive search on the left subtree and is the same function as above
+                return self.left.search(val) # it will do a recursive search on the left subtree and is the same function as above
             else:
                 return False # when it reach to end, it indicates that this does not exist in our tree
             # 'val' might be in left subtree (not guaranteed)
@@ -71,6 +71,7 @@ class BinarySearchTreeNode:
 
     
 def build_tree(elements):
+    print("Building tree with these elements: ", elements)
     # root node for the tree element
     root = BinarySearchTreeNode(elements[0]) 
     
@@ -82,11 +83,13 @@ def build_tree(elements):
  
 # return main method with the given data node structure that consist of numbers in list
 if __name__ == "__main__":
-    numbers = [17, 4, 1, 20, 9, 23, 18, 34, 18, 4] # implementation of sets that contain numbers which are unique and therefore does not allow duplicates.
-    numbers_tree = build_tree(numbers) 
-    print(numbers_tree.in_order_traversal()) # call the def in_order_traversal(self) parameter function and executing the code to return the elements with ascending order rule.
+    countries = ["India", "Pakistan", "Germany", "USA", "China", "India", "UK", "USA"] # implementation of sets that contain numbers which are unique and therefore does not allow duplicates.
+    country_tree = build_tree(countries) 
+    print(country_tree.in_order_traversal()) # call the def in_order_traversal(self) parameter function and executing the code to return the elements with ascending order rule.
     
     """ testing out code block 85 for our binary search tree """
-    print(numbers_tree.search(20)) # will return True because element 20 exist
-    print(numbers_tree.search(21)) # will return False because element 21 does not exist
-    print(numbers_tree.search(200)) # will return False because element 200 does not exist
+    print("UK is in the list? ", country_tree.search("UK")) # will return True because element 20 exist
+    print("Sweden is in the list? ", country_tree.search("Sweden")) # will return False because element 21 does not exist
+    print(country_tree.search(200)) # will return False because element 200 does not exist
+    
+    print(country_tree.in_order_traversal()) # call the def in_order_tra
