@@ -119,11 +119,11 @@ if __name__ == "__main__":
     numbers_tree = build_tree([23, 3, 1, 27, 13, 8, 17, 60])
     numbers_tree.delete(17)
     
-    print("After deleting 17 ", numbers_tree.in_order_traversal(), "\n")
+    print("After deleting 17 = ", numbers_tree.in_order_traversal(), "\n")
     numbers_tree = build_tree([23, 3, 1, 27, 13, 8, 17, 60])
     numbers_tree.delete(3)
     
-    print("After deleting 17 ", numbers_tree.in_order_traversal(), "\n")
+    print("After deleting 3 = ", numbers_tree.in_order_traversal(), "\n")
     numbers_tree = build_tree([23, 3, 1, 27, 13, 8, 17, 60])
     numbers_tree.delete(60)
-    print("After deleting 17 ", numbers_tree.in_order_traversal(), "\n")
+    print("After deleting 60 = ", numbers_tree.in_order_traversal(), "\n")
