@@ -12,3 +12,8 @@ class BinarySearchTreeNode:
         self.data = data
         self.left = None
         self.right = None
+    
+    # this could be a root node or any node on the tree
+    # supplementing 'data' as a parameter for the add_child
+    def add_child(self, data):
+    #TODO: we first need to check the value of our 'data';
