@@ -34,4 +34,13 @@ class BinarySearchTreeNode:
     # Implementing an algorithm for specifying a particular order of precedence for a given data node.
     def in_order_traversal(self):
         elements = []
+        
+        # visiting the left tree element/s
+        if self.left:
+            # when checking elements = elements plus something, the self.left.in_order_traversal method will return some list and it will add that list to a local "element" list. 
+            elements += self.left.in_order_traversal() # calling this function recursively
+        
+        # visiting the base node
+        elements.append(self.data)
+        
         return elements
