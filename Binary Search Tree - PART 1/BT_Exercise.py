@@ -1,3 +1,13 @@
+# Exercise Reference Source Link: https://github.com/codebasics/data-structures-algorithms-python/blob/master/data_structures/8_Binary_Tree_1/8_binary_tree_part_1_exercise.md
+
+# * REQUIRED TERMINAL OUTPUT
+""" find_min(): finds minimum element in entire binary tree
+    find_max(): finds maximum element in entire binary tree
+    calculate_sum(): calculates sum of all elements
+    post_order_traversal(): performs post order traversal of a binary tree
+    pre_order_traversal(): performs pre order traversal of a binary tree\
+"""
+
 class BinarySearchTreeNode:
     def __init__(self, data):
         self.data = data
