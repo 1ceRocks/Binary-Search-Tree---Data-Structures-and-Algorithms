@@ -16,9 +16,13 @@ class BinarySearchTreeNode:
     # this could be a root node or any node on the tree
     def add_child(self, data):
         if data == self.data:
-            return
+            return # binary search tree cannot have duplicate children or elements which are not equal to the current node
         
         if data < self.data:
             # add data in left subtree;
+            if self.left:
+                pass
+            else:
+                self.left = BinarySearchTreeNode(data)
         else:
-            # add data in right subtree
+            # add data in right subtree;
