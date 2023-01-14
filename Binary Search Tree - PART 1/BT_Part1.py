@@ -56,7 +56,7 @@ class BinarySearchTreeNode:
         # if the value we're searching for is less than data
         if val < self.data:
             if self.left:
-                pass # using code pass if self.left does not contain any elements in the left tree
+                self.left.search(val) # it will do a recursive search on the left subtree and is the same function as above
             else:
                 return False # when it reach to end, it indicates that this does not exist in our tree
             # 'val' might be in left subtree (not guaranteed)
