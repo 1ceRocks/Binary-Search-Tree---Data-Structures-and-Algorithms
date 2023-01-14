@@ -93,3 +93,14 @@ class BinarySearchTreeNode:
             self.right = self.right.delete(min_val)
             
         return self
+
+def build_tree(elements):
+    print("\nBuilding tree with these elements: ", elements)
+    # root node for the tree element
+    root = BinarySearchTreeNode(elements[0]) 
+    
+    # building the tree using for loop iteration methods
+    for i in range(1, len(elements)):
+        root.add_child(elements[i])
+        
+    return root
