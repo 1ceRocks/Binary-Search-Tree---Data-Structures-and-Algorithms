@@ -88,4 +88,10 @@ def build_tree(elements):
  
 # return main method with the given data node structure that consist of numbers in list
 if __name__ == "__main__":
-    # TODO: Let's test out the find_min function by assigning a set method list and printing the results in the console.
+    # TODO: Let's test out the find_min function by assigning a set method list, inserting them to build_tree def function, and printing the results in the console.
+    numbers = [23, 3, 1, 27, 13, 8, 17, 60]
+    
+    numbers_tree = build_tree(numbers)
+    
+    print("\nInput numbers: ", numbers)
+    print("Minimum number: ", numbers_tree.find_min())
