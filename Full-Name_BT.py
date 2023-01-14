@@ -97,3 +97,8 @@ class BinarySearchTreeNode:
         if self.left is None: # the left child element of the root node has been used as the perspective view for finding the minimum element in the binary tree.
             return self.data
         return self.left.find_min()
+    
+    def find_max(self):
+        if self.right is None: # the right child element of the root node has been used as the perspective view for finding the minimum element in the binary tree.
+            return self.data
+        return self.right.find_max()
