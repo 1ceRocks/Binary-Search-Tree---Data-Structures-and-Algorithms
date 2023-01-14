@@ -86,7 +86,7 @@ class BinarySearchTreeNode:
                 self.left = self.left.delete(val) # recursively call delete method on the left subtree
         elif val > self.data:
             if self.right:
-                self.right.delete(val)
+                self.right = self.right.delete(val)
         else:
             if self.left is None and self.right is None: # we raised the last data point, left and right subtree is basically None
                 return None
