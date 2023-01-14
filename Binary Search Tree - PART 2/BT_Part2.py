@@ -69,6 +69,16 @@ class BinarySearchTreeNode:
             
         return elements # it returns all the elements in the tree in specific order [ascending order]
     
+    def find_min(self):
+        if self.left is None: # the left child element of the root node has been used as the perspective view for finding the minimum element in the binary tree.
+            return self.data
+        return self.left.find_min()
+    
+    def find_max(self):
+        if self.right is None: # the right child element of the root node has been used as the perspective view for finding the minimum element in the binary tree.
+            return self.data
+        return self.right.find_max()
+    
     # TODO: Implementation of delete def function
     def delete(self, val): # implementing delete function where we can supply a particular value and it will delete the node from the binary tree
         if val < self.data: # checking if the value is less than the self.data
