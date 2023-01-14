@@ -78,7 +78,7 @@ class BinarySearchTreeNode:
     def find_max(self):
         if self.right is None: # the right child element of the root node has been used as the perspective view for finding the minimum element in the binary tree.
             return self.data
-        return self.left.find_max()
+        return self.right.find_max()
     
 def build_tree(elements):
     print("\nBuilding tree with these elements: ", elements)
@@ -99,4 +99,4 @@ if __name__ == "__main__":
     
     print("\nInput numbers: ", numbers)
     print("Minimum number: ", numbers_tree.find_min())
-    #TODO: Testing out our program code here for finding the maximum number of element from the binary tree.
+    print("Maximum number: ", numbers_tree.find_max())
