@@ -73,6 +73,7 @@ class BinarySearchTreeNode:
     def delete(self, val): # implementing delete function where we can supply a particular value and it will delete the node from the binary tree
         if val < self.data: # checking if the value is less than the self.data
             if self.left:
+                # ! Error occurred when trying to delete the left node repetitively from the binary tree.
                 self.left.delete(val) # recursively call delete method on the left subtree
         elif val > self.data:
             if self.right:
@@ -106,6 +107,14 @@ def build_tree(elements):
     return root
 
 if __name__ == "__main__":
+    numbers_tree = build_tree([23, 3, 1, 27, 13, 8, 17, 60])
+    numbers_tree.delete(17)
+    
+    print("After deleting 17 ", numbers_tree.in_order_traversal(), "\n")
+    numbers_tree = build_tree([23, 3, 1, 27, 13, 8, 17, 60])
+    numbers_tree.delete(17)
+    
+    print("After deleting 17 ", numbers_tree.in_order_traversal(), "\n")
     numbers_tree = build_tree([23, 3, 1, 27, 13, 8, 17, 60])
     numbers_tree.delete(17)
     print("After deleting 17 ", numbers_tree.in_order_traversal(), "\n")
