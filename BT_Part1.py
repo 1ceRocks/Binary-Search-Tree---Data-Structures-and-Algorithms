@@ -30,3 +30,8 @@ class BinarySearchTreeNode:
                 self.right.add_child(data)
             else:
                 self.right = BinarySearchTreeNode(data)
+    
+    # Implementing an algorithm for specifying a particular order of precedence for a given data node.
+    def in_order_traversal(self):
+        elements = []
+        return elements
