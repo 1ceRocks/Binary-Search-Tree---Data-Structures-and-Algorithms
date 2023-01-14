@@ -138,3 +138,30 @@ def build_tree(elements):
         root.add_child(elements[i])
         
     return root
+
+if __name__ == "__main__":
+    # F R I T Z C E D R I C K V I Ñ A S V I L L A R I Z A
+    fullname = ["F", "R", "I", "T", "Z", "C", "E", "D", "R", "I", "C", "K", "V", "I", "Ñ", "A", "S", "V", "I", "L", "L", "A", "R", "I", "Z", "A", ]
+    
+    fullname_tree = build_tree(fullname)
+    
+    print("\nInput letters:", fullname)
+    
+    print("\nMinimum and Maximum Value of Element/Node/Letter That Is Present On My Full Name")    
+    print("Minimum letter: ", fullname_tree.find_min())
+    print("Maximum letter: ", fullname_tree.find_max())
+    
+    print("\nBy Three (3) Different Binary Tree Traversal Methods")  
+    print("In Order Traversal: ", fullname_tree.in_order_traversal())
+    print("Pre Order Traversal: ", fullname_tree.pre_order_traversal())
+    print("Post Order Traversal: ", fullname_tree.post_order_traversal())
+
+    print("\nBy Deleting An Alphabet/Letter From My Full Name")  
+    fullname_tree.delete("Ñ")
+    print("After removing the letter Ñ, we have: ", fullname_tree.in_order_traversal())
+    
+    print("\nBy Searching On The Simulated Binary Build Tree")
+    print("Do we have a letter I contained on the list?", fullname_tree.search("I"))
+    print("Do we have a letter B contained on the list?", fullname_tree.search("B"), "\n")
+    
+    # ! END OF THE PROGRAM ----------------------------------------------------------------
