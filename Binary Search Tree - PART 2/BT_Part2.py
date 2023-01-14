@@ -72,3 +72,18 @@ class BinarySearchTreeNode:
     # TODO: Implementation of delete def function
     def delete(self, val): # implementing delete function where we can supply a particular value and it will delete the node from the binary tree
         if val < self.data: # checking if the value is less than the self.data
+            if self.left:
+                self.left.delete(val) # recursively call delete method on the left subtree
+        elif val > self.data:
+            if self.right:
+                self.right.delete(val)
+        else:
+            if self.left is None and self.right is None: # we raised the last data point, left and right subtree is basically None
+                return None
+            """
+            recursion method
+            """
+            if self.left is None: # we have right but we don't have left subtree
+                return self.right
+            if self.right is None:
+                return self.right
