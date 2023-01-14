@@ -72,3 +72,12 @@ class BinarySearchTreeNode:
             elements += self.right.in_order_traversal() # ' ' ' '
             
         return elements # it returns all the elements in the tree in specified order [ascending order]
+    
+    def pre_order_traversal(self):
+        elements = [self.data]
+        if self.left:
+            elements += self.left.pre_order_traversal()
+        if self.right:
+            elements += self.right.pre_order_traversal()
+            
+        return elements
