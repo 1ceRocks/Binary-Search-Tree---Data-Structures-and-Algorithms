@@ -1,0 +1,146 @@
+# Exercise Reference Source Link: https://github.com/codebasics/data-structures-algorithms-python/blob/master/data_structures/9_Binary_Tree_2/9_binary_tree_part_2_exercise.md
+
+# * REQUIRED TERMINAL OUTPUT
+
+# ? Modify delete method in class BinarySearchTreeNode class to use min element from left subtree. You will remove lines marked with ---> and use max value from left subtree
+
+""" def delete(self, val):
+        if val < self.data:
+            if self.left:
+                self.left = self.left.delete(val)
+        elif val > self.data:
+            if self.right:
+                self.right = self.right.delete(val)
+        else:
+            if self.left is None and self.right is None:
+                return None
+            elif self.left is None:
+                return self.right
+            elif self.right is None:
+                return self.right
+
+          --->  min_val = self.right.find_min()
+          --->  self.data = min_val
+          --->  self.right = self.right.delete(min_val)
+"""
+
+class BinarySearchTreeNode:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+    
+    # this could be a root node or any node on the tree
+    def add_child(self, data):
+        if data == self.data:
+            return # binary search tree cannot have duplicate children or elements which are not equal to the current node
+        
+        if data < self.data:
+            # add data in left subtree;
+            if self.left:
+                self.left.add_child(data)
+            else:
+                self.left = BinarySearchTreeNode(data)
+        else:
+            # add data in right subtree;
+            if self.right:
+                self.right.add_child(data)
+            else:
+                self.right = BinarySearchTreeNode(data)
+    
+    def search(self, val):
+        if self.data == val:
+            return True
+        
+        # if the value we're searching for is less than data
+        if val < self.data:
+            if self.left:
+                return self.left.search(val) # it will do a recursive search on the left subtree and is the same function as above
+            else:
+                return False # when it reach to end, it indicates that this does not exist in our tree
+            # 'val' might be in left subtree (not guaranteed)
+            
+        # if the value we're searching for is greater than data
+        if val > self.data:
+            if self.right:
+                return self.right.search(val) # it will do a recursive search
+            else:
+                return False
+            # 'val' might be in right subtree (not guaranteed)
+
+    # Implementing an algorithm for specifying a particular order of precedence for a given data node.
+    def in_order_traversal(self):
+        elements = []
+        
+        # visiting the left tree element/s
+        if self.left:
+            # when checking elements = elements plus something, the self.left.in_order_traversal method will return some list and it will add that list to a local "element" list. 
+            elements += self.left.in_order_traversal() # calling this function recursively
+        
+        # visiting the base node
+        elements.append(self.data)
+        
+        # visiting the right tree element/s
+        if self.right:
+            elements += self.right.in_order_traversal() # ' ' ' '
+            
+        return elements # it returns all the elements in the tree in specific order [ascending order]
+    
+    def find_min(self):
+        if self.left is None: # the left child element of the root node has been used as the perspective view for finding the minimum element in the binary tree.
+            return self.data
+        return self.left.find_min()
+    
+    def find_max(self):
+        if self.right is None: # the right child element of the root node has been used as the perspective view for finding the minimum element in the binary tree.
+            return self.data
+        return self.right.find_max()
+    
+    # TODO: Implementation of delete def function
+    def delete(self, val): # implementing delete function where we can supply a particular value and it will delete the node from the binary tree
+        if val < self.data: # checking if the value is less than the self.data
+            if self.left:
+                self.left = self.left.delete(val) # recursively call delete method on the left subtree
+        elif val > self.data:
+            if self.right:
+                self.right.delete(val)
+        else:
+            if self.left is None and self.right is None: # we raised the last data point, left and right subtree is basically None
+                return None
+            """
+            recursion method
+            """
+            if self.left is None: # we have right but we don't have left subtree
+                return self.right
+            if self.right is None:
+                return self.right
+            
+            min_val = self.right.find_min()
+            self.data = min_val
+            self.right = self.right.delete(min_val)
+            
+        return self
+
+def build_tree(elements):
+    print("\nBuilding tree with these elements: ", elements)
+    # root node for the tree element
+    root = BinarySearchTreeNode(elements[0]) 
+    
+    # building the tree using for loop iteration methods
+    for i in range(1, len(elements)):
+        root.add_child(elements[i])
+        
+    return root
+
+if __name__ == "__main__":
+    numbers_tree = build_tree([23, 3, 1, 27, 13, 8, 17, 60])
+    numbers_tree.delete(17)
+    
+    print("After deleting 17 = ", numbers_tree.in_order_traversal(), "\n")
+    numbers_tree = build_tree([23, 3, 1, 27, 13, 8, 17, 60])
+    numbers_tree.delete(3)
+    
+    print("After deleting 3 = ", numbers_tree.in_order_traversal(), "\n")
+    numbers_tree = build_tree([23, 3, 1, 27, 13, 8, 17, 60])
+    numbers_tree.delete(60)
+    print("After deleting 60 = ", numbers_tree.in_order_traversal(), "\n")
