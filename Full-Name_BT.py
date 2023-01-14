@@ -92,3 +92,8 @@ class BinarySearchTreeNode:
         elements.append(self.data) 
             
         return elements
+    
+    def find_min(self):
+        if self.left is None: # the left child element of the root node has been used as the perspective view for finding the minimum element in the binary tree.
+            return self.data
+        return self.left.find_min()
