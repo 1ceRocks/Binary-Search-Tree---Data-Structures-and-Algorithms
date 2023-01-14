@@ -124,3 +124,4 @@ if __name__ == "__main__":
     print("Minimum number: ", numbers_tree.find_min())
     print("Maximum number: ", numbers_tree.find_max())
     print("Calculated sum: ", numbers_tree.calculate_sum())
+    print("\nPre Order Traversal: ", numbers_tree.pre_order_traversal())
