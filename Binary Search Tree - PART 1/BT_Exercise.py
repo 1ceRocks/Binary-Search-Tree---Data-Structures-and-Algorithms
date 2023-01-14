@@ -70,6 +70,9 @@ class BinarySearchTreeNode:
             
         return elements # it returns all the elements in the tree in specific order [ascending order]
     
+    # TODO: We need to create a def function for finding the minimum order of precedence for a given data node or element in our entire binary tree
+    def find_min(self):
+    
 def build_tree(elements):
     print("\nBuilding tree with these elements: ", elements)
     # root node for the tree element
