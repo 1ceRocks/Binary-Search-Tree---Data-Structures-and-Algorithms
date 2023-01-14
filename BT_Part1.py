@@ -48,3 +48,17 @@ class BinarySearchTreeNode:
             elements += self.right.in_order_traversal() # ' ' ' '
             
         return elements
+    
+def build_tree(elements):
+    # root node for the tree element
+    root = BinarySearchTreeNode(elements[0]) 
+    
+    # building the tree using for loop iteration methods
+    for i in range(1, len(elements)):
+        root.add_child(elements[i])
+        
+    return root
+ 
+# return main method with the given data node structure that consist of numbers in list
+if __name__ == "__main__":
+    numbers = [17, 4, 1, 20, 9, 23, 18, 34]
