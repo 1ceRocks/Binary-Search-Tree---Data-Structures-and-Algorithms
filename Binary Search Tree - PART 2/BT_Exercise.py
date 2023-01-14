@@ -96,7 +96,10 @@ class BinarySearchTreeNode:
             return self.data
         return self.right.find_max()
     
-    # TODO: Implementation of delete def function
+    # TODO: Modify delete method in class BinarySearchTreeNode class to use min element from left subtree. You will remove lines marked with ---> and use max value from left subtree 
+    """   --->  min_val = self.right.find_min()
+          --->  self.data = min_val
+          --->  self.right = self.right.delete(min_val) """
     def delete(self, val): # implementing delete function where we can supply a particular value and it will delete the node from the binary tree
         if val < self.data: # checking if the value is less than the self.data
             if self.left:
