@@ -81,6 +81,18 @@ class BinarySearchTreeNode:
         return self.right.find_max()
     
     # TODO: Create a program code blocks for calculating the sum of all the elements in the binary tree.
+    def calculate_sum(self):
+        if self.left:
+            left_sum = self.left.calculate_sum()
+        else:
+            left_sum = 0
+            
+        if self.right:
+            right_sum = self.right.calculate_sum()
+        else:
+            right_sum = 0
+        
+        return self.data + left_sum + right_sum
     
 def build_tree(elements):
     print("\nBuilding tree with these elements: ", elements)
