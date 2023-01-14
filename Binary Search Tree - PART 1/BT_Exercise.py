@@ -71,6 +71,14 @@ class BinarySearchTreeNode:
         return elements # it returns all the elements in the tree in specific order [ascending order]
     
     # TODO: Let's now implement the binary tree specification for pre-order traversal by introducing a new def function with parameter self as program algorithm.
+    def pre_order_traversal(self):
+        elements = [self.data]
+        if self.left:
+            elements += self.left.pre_order_traversal()
+        if self.right:
+            elements += self.right.pre_order_traversal()
+
+        return elements
     
     def find_min(self):
         if self.left is None: # the left child element of the root node has been used as the perspective view for finding the minimum element in the binary tree.
