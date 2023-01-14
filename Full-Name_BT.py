@@ -34,3 +34,23 @@ class BinarySearchTreeNode:
                 self.right.add_child(data)
             else:
                 self.right = BinarySearchTreeNode(data)
+                
+    def search(self, val):
+        if self.data == val:
+            return True
+        
+        # if the value we're searching for is less than data
+        if val < self.data:
+            if self.left:
+                return self.left.search(val) # it will do a recursive search on the left subtree and is the same function as above
+            else:
+                return False # when it reach to end, it indicates that this does not exist in ourtree
+            # 'val' might be in left subtree (not guaranteed)
+        
+        # if the value we're searching for is greater than data
+        if val > self.data:
+            if self.right:
+                return self.right.search(val) # it will do a recursive search
+            else:
+                return False
+            # 'val' might be in left subtree (not guaranteed)
