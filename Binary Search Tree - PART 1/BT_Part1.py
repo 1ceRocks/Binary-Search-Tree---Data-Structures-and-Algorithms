@@ -49,6 +49,19 @@ class BinarySearchTreeNode:
             
         return elements # it returns all the elements in the tree in specific order [ascending order]
     
+    def search(self, val):
+        if self.data == val:
+            return True
+        
+        # if the value we're searching for is less than data
+        if val < self.data:
+            # 'val' might be in left subtree (not guaranteed)
+            
+        # if the value we're searching for is greater than data
+        if val > self.data:
+            # 'val' might be in right subtree (not guaranteed)
+
+    
 def build_tree(elements):
     # root node for the tree element
     root = BinarySearchTreeNode(elements[0]) 
