@@ -88,15 +88,3 @@ def build_tree(elements):
  
 # return main method with the given data node structure that consist of numbers in list
 if __name__ == "__main__":
-    numbers_tree = build_tree([17, 4, 1, 20, 9, 23, 18, 34]) # implementation of sets that contain numbers which are unique and therefore does not allow duplicates.
-    print("In order traversal gives this sorted list (NUMBERS) :",numbers_tree.in_order_traversal())
-        
-    countries = ["India", "Pakistan", "Germany", "USA", "China", "India", "UK", "USA"] # implementation of sets that contain countries which are unique and therefore does not allow duplicates.
-    country_tree = build_tree(countries) 
-    print(country_tree.in_order_traversal()) # call the def in_order_traversal(self) parameter function and executing the code to return the elements with ascending order rule.
-    
-    """ testing out code block 85 for our binary search tree """
-    print("UK is in the list? ", country_tree.search("UK")) # will return True because element 20 exist
-    print("Sweden is in the list? ", country_tree.search("Sweden")) # will return False because element 21 does not exist
-    
-    print(country_tree.in_order_traversal(), "\n") # call the def in_order_traversal() function
