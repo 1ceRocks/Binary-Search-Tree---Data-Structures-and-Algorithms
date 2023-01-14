@@ -63,6 +63,10 @@ class BinarySearchTreeNode:
             
         # if the value we're searching for is greater than data
         if val > self.data:
+            if self.right:
+                return self.right.search(val) # it will do a recursive search
+            else:
+                return False
             # 'val' might be in right subtree (not guaranteed)
 
     
@@ -81,3 +85,8 @@ if __name__ == "__main__":
     numbers = [17, 4, 1, 20, 9, 23, 18, 34, 18, 4] # implementation of sets that contain numbers which are unique and therefore does not allow duplicates.
     numbers_tree = build_tree(numbers) 
     print(numbers_tree.in_order_traversal()) # call the def in_order_traversal(self) parameter function and executing the code to return the elements with ascending order rule.
+    
+    """ testing out code block 85 for our binary search tree """
+    print(numbers_tree.search(20)) # will return True because element 20 exist
+    print(numbers_tree.search(21)) # will return False because element 21 does not exist
+    print(numbers_tree.search(200)) # will return False because element 200 does not exist
