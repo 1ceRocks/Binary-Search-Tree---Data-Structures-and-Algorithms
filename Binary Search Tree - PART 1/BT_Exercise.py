@@ -88,3 +88,4 @@ def build_tree(elements):
  
 # return main method with the given data node structure that consist of numbers in list
 if __name__ == "__main__":
+    # TODO: Let's test out the find_min function by assigning a set method list and printing the results in the console.
