@@ -44,7 +44,7 @@ class BinarySearchTreeNode:
             if self.left:
                 return self.left.search(val) # it will do a recursive search on the left subtree and is the same function as above
             else:
-                return False # when it reach to end, it indicates that this does not exist in ourtree
+                return False # when it reach to end, it indicates that this does not exist in subtree
             # 'val' might be in left subtree (not guaranteed)
         
         # if the value we're searching for is greater than data
@@ -54,3 +54,21 @@ class BinarySearchTreeNode:
             else:
                 return False
             # 'val' might be in left subtree (not guaranteed)
+            
+    # Implementing an algorithm for specifying a particular order of precedence for a given data node.
+    def in_order_traversal(self):
+        elements = []
+        
+        # visiting the left element/s
+        if self.left:
+            # when checking elements = elements plus something, then self.left.in_order_traversal() method will return some list and it will add that list to a local "element" list.
+            elements += self.left.in_order_traversal() # calling this function recursively
+            
+        # visiting the base node
+        elements.append(self.data)
+        
+        # visiting the right tree element/s
+        if self.right:
+            elements += self.right.in_order_traversal() # ' ' ' '
+            
+        return elements # it returns all the elements in the tree in specified order [ascending order]
