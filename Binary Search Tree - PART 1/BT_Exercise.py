@@ -76,6 +76,7 @@ class BinarySearchTreeNode:
         return self.left.find_min()
     
     # TODO: From here on, we will now create a new def function for finding out the maximum element value in the entirety of our binary tree.
+    def find_max(self):
     
 def build_tree(elements):
     print("\nBuilding tree with these elements: ", elements)
