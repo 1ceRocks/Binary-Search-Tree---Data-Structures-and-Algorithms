@@ -93,4 +93,4 @@ if __name__ == "__main__":
     print("UK is in the list? ", country_tree.search("UK")) # will return True because element 20 exist
     print("Sweden is in the list? ", country_tree.search("Sweden")) # will return False because element 21 does not exist
     
-    print(country_tree.in_order_traversal(), "\n") # call the def in_order_tra
+    print(country_tree.in_order_traversal(), "\n") # call the def in_order_traversal() function
